@@ -24,8 +24,8 @@ class TestAhorroProgramado(unittest.TestCase):
     #CASOS EXTRAORDINARIOS
     def test_meta_cero(self):
         ahorro = AhorroProgramado(meta=0, plazo=1, extra=0, mes_extra=1)
-        with self.assertRaises(ErrorMetaMayorACero):
-            ahorro.calcular_ahorro()
+        self.assertEqual(ahorro.calcular_ahorro(), 0)
+
 
     def test_ahorro_unico_mes(self):
         ahorro = AhorroProgramado(meta=90000, plazo=1, extra=0, mes_extra=1)

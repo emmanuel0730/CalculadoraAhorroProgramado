@@ -53,8 +53,10 @@ class AhorroProgramado:
     mes_extra: int
     
     def calcular_ahorro(self) -> float:
-        if self.meta <= 0: 
+        if self.meta < 0:
             raise ErrorMetaMayorACero(f"Error: la meta de ahorro {self.meta} ingresada debe ser mayor a 0")
+        if self.meta == 0:
+            return 0
         if self.plazo <= 0: 
             raise ErrorPlazoMayorACero(f"Error: el plazo {self.plazo} ingresado debe ser mayor a 0")       
         if self.mes_extra < 1 or self.mes_extra > self.plazo:
