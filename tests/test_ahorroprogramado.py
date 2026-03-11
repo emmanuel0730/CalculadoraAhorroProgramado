@@ -22,22 +22,22 @@ class TestAhorroProgramado(unittest.TestCase):
         self.assertEqual(ahorro.calcular_ahorro(), 4130954.55)
 
     #CASOS EXTRAORDINARIOS
-    def test_meta_cero(self):
+    def test_ahorro_cero(self):
         ahorro = AhorroProgramado(meta=0, plazo=1, extra=0, mes_extra=1)
         self.assertEqual(ahorro.calcular_ahorro(), 0)
 
 
-    def test_ahorro_unico_mes(self):
+    def test_ahorro_unico(self):
         ahorro = AhorroProgramado(meta=90000, plazo=1, extra=0, mes_extra=1)
         self.assertEqual(ahorro.calcular_ahorro(), 90000)
 
-    def test_extra_igual_meta(self):
+    def test_extra_igual_a_ahorro(self):
         ahorro = AhorroProgramado(meta=400000, plazo=2, extra=400000, mes_extra=1)
         self.assertEqual(ahorro.calcular_ahorro(), 0)
 
 
     # CASOS DE ERROR
-    def test_meta_menor_a_cero(self):
+    def test_ahorro_negativo(self):
         with self.assertRaises(ErrorMetaMayorACero):
             ahorro = AhorroProgramado(meta=-1300000, plazo=15, extra=0, mes_extra=1)
             ahorro.calcular_ahorro()
@@ -47,17 +47,17 @@ class TestAhorroProgramado(unittest.TestCase):
             ahorro = AhorroProgramado(meta=5000, plazo=0, extra=0, mes_extra=1)
             ahorro.calcular_ahorro()
 
-    def test_abono_supera_meta(self):
+    def test_abono_superior(self):
         with self.assertRaises(ErrorAbonoSuperaMeta):
             ahorro = AhorroProgramado(meta=400000, plazo=2, extra=800000, mes_extra=1)
             ahorro.calcular_ahorro()
 
-    def test_mes_extra_fuera_de_rango(self):
+    def test_mes_extra_superior(self):
         with self.assertRaises(ErrorMesExtraFueraDelRango):
             ahorro = AhorroProgramado(meta=200000, plazo=3, extra=20000, mes_extra=5)
             ahorro.calcular_ahorro()
     
-    def test_abono_menor_a_cero(self):
+    def test_abono_negativo(self):
         with self.assertRaises(ErrorAbonoExtraMenorAcero):
             ahorro = AhorroProgramado(meta=200000, plazo=3, extra=-200000, mes_extra=1)
             ahorro.calcular_ahorro()
