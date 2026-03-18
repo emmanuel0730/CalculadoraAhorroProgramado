@@ -104,19 +104,19 @@ class AhorroProgramado:
         """
 
         if ahorro.meta < 0:
-            raise ErrorMetaMayorACero()
+            raise ErrorMetaMayorACero(ahorro)
 
         if ahorro.plazo <= 0:
-            raise ErrorPlazoMayorACero()
+            raise ErrorPlazoMayorACero(ahorro)
 
         if ahorro.extra < 0:
-            raise ErrorAbonoExtraMenorAcero()
+            raise ErrorAbonoExtraMenorAcero(ahorro)
 
         if ahorro.extra > ahorro.meta:
-            raise ErrorAbonoSuperaMeta()
+            raise ErrorAbonoSuperaMeta(ahorro)
 
         if ahorro.mes_extra < 1 or ahorro.mes_extra > ahorro.plazo:
-            raise ErrorMesExtraFueraDelRango()
+            raise ErrorMesExtraFueraDelRango(ahorro)
 
     def _calcular_valor_futuro_extra(self, ahorro: Ahorro) -> float:
         """
