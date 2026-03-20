@@ -54,7 +54,7 @@ El resultado final se **redondea a 2 decimales**.
 
 El sistema sigue el principio de **separación de responsabilidades**, dividiendo el proyecto en tres capas principales:
 
-- **Core (lógica de negocio)**
+- **Model (lógica de negocio)**
 - **UI (interfaz de usuario)**
 - **Tests (pruebas unitarias)**
 
@@ -68,7 +68,7 @@ CALCULADORA_AHORRO_PROGRAMADO
 │       └── cuotamensual.svg
 │
 ├── src/
-│   ├── core/
+│   ├── model/
 │   │   └── ahorro.py
 │   │
 │   └── ui/
@@ -82,7 +82,7 @@ CALCULADORA_AHORRO_PROGRAMADO
 
 ---
 
-## 📦 src/core
+## 📦 src/model
 
 Contiene la **lógica de negocio del sistema**.
 
