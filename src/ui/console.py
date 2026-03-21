@@ -7,15 +7,39 @@ from model.ahorro import *
 def main():
     print("\n📈 CALCULADORA DE AHORRO PROGRAMADO\n")
 
+    valor = input("Ingrese la meta de ahorro: ")
     try:
-        meta = float(input("Ingrese la meta de ahorro: "))
-        plazo = int(input("Ingrese el plazo en meses: "))
-        extra =  float(input("Ingrese el monto extra (0 si no aplica): "))
-        if extra == 0:  
-            mes_extra = 1
-        else: 
-            mes_extra = int(input("Ingrese el mes del aporte extra: "))
-        
+        meta = float(valor)
+    except ValueError:
+        print(f"🚨 Error en 'meta': '{valor}' no es un número válido.")
+        return
+
+    valor = input("Ingrese el plazo en meses: ")
+    try:
+        plazo = int(valor)
+    except ValueError:
+        print(f"🚨 Error en 'plazo': '{valor}' no es un número entero válido.")
+        return
+
+    valor = input("Ingrese el monto extra (0 si no aplica): ")
+    try:
+        extra = float(valor)
+    except ValueError:
+        print(f"🚨 Error en 'extra': '{valor}' no es un número válido.")
+        return
+
+    if extra == 0:
+        mes_extra = 1
+    else:
+        valor = input("Ingrese el mes del aporte extra: ")
+        try:
+            mes_extra = int(valor)
+        except ValueError:
+            print(f"🚨 Error en 'mes_extra': '{valor}' no es un número entero válido.")
+            return
+
+    
+    try:
         ahorro = Ahorro(
             meta=meta,
             plazo=plazo,
@@ -28,9 +52,6 @@ def main():
 
         print("\n✅ RESULTADO")
         print(f"Debes ahorrar mensualmente: ${round(cuota, 2)}")
-    
-    except ValueError:
-        print("\n🚨 Debes ingresar valores numéricos válidos.")
 
     except (
         ErrorMetaMayorACero,
