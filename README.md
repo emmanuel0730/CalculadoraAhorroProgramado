@@ -72,7 +72,8 @@ CALCULADORA_AHORRO_PROGRAMADO
 │   │   └── ahorro.py
 │   │
 │   └── ui/
-│       └── console.py
+│       ├── console.py
+│       └── calculadora_ahorro_gui.py
 │
 ├── tests/
 │   └── test_ahorroprogramado.py
@@ -243,11 +244,29 @@ Este proyecto implementa:
 
 ---
 
+▶️ Ejecución de la Aplicación
+🖥️ Interfaz Gráfica (GUI)
+
+Para ejecutar la aplicación con interfaz gráfica desde la terminal (CMD):
+
+python src/ui/calculadora_ahorro_gui.py
+
+o:
+
+py src/ui/calculadora_ahorro_gui.py
+
+src/ui/calculadora_ahorro_gui
+Antes de ejecutar deberas estar en la carpeta correcta donde guardaste el proyecto 
+
 # 👨‍💻 Autores
 
 Proyecto académico desarrollado por:
 
 **Luisa Fernanda Espinal Montoya**  
 **José Manuel Jaramillo Valencia**
+
+Interfaz Kivy desarrollada por:
+**Emmanuel Betancur**
+**Juan Pablo Arango**
 
 Como práctica de **modelado financiero aplicado al ahorro programado y buenas prácticas de programación en Python**.
