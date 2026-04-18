@@ -88,22 +88,16 @@ class AhorroProgramadoApp(App):
         
         try:
             meta = float(self.meta.text)
-            if meta < 0:
-                raise Exception("La meta debe ser mayor a cero.")
         except ValueError:
             raise Exception("La meta debe ser un número válido.")
 
         try:
             plazo = int(self.plazo.text)
-            if plazo <= 0:
-                raise Exception("El plazo debe ser mayor a cero.")
         except ValueError:
             raise Exception("El plazo debe ser un número entero.")
 
         try:
             extra = float(self.extra.text)
-            if extra < 0:
-                raise Exception("El abono extra no puede ser negativo.")
         except ValueError:
             raise Exception("El abono extra debe ser un número válido.")
 
