@@ -111,8 +111,8 @@ class AhorroProgramadoApp(App):
         contenido = GridLayout(cols=1, padding=12, spacing=10)
         contenido.add_widget(Label(
             text=err,
-            color=(0.13, 0.13, 0.13, 1),
-            font_size=13
+            color=(1, 1, 1, 1),
+            font_size=20
         ))
         cerrar = Button(
             text="Cerrar",
